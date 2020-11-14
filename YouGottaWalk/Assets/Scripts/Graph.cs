@@ -15,6 +15,12 @@ public class Graph<T> {
         return neighborList[node];
     }
 
+    public List<T> GetNeighborElements(int node) {
+        List<T> result = new List<T>();
+        GetNeighbors(node).ForEach(neighbor => result.Add(GetElement(neighbor)));
+        return result;
+    }
+
     public T GetElement(int node) {
         return nodes[node];
     }

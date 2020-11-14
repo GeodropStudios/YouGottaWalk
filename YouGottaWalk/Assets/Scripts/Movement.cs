@@ -7,6 +7,7 @@ public enum MovementType {
     WALK,
     RUN,
     JUMP,
+    DASH,
     DRIVE,
     FLAP,
     SWIM,
@@ -18,9 +19,11 @@ public enum MovementType {
 public abstract class Movement {
     public MovementType type { get; private set; }
 
+    public float speed { get; protected set; }
+
     public Movement(MovementType type) {
         this.type = type;
     }
 
-    public abstract void Move(float horizontalAxis, float verticalAxis, int button);
+    public abstract void Move(PlayerInput input);
 }
